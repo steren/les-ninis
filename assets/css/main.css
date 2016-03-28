@@ -2331,6 +2331,11 @@
 				width: 100%;
 			}
 
+			.image.fit iframe {
+				width: 100%;
+				height: 400px;
+			}
+
 /* List */
 
 	ol {
