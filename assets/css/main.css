@@ -2323,8 +2323,15 @@
 
 		.image.fit {
 			display: block;
-			margin: 0 0 2em 0;
 			width: 100%;
+			margin: 0 0 20px 0;
+		}
+
+		.image-key {
+			margin: 0 0 10px 0;
+		}
+		h3.image-key {
+			line-height: normal;
 		}
 
 			.image.fit img {
@@ -2717,6 +2724,7 @@
 			background-attachment: fixed;
 			background-image: url("../../images/wood3.jpg");
 			background-size: cover;
+/* 			font-weight: bold; */
 		}
 
 			.main.style2 a {
@@ -2798,6 +2806,11 @@
 			.main.style2 .icon.major {
 				color: #ffffff;
 			}
+
+.and {
+	margin-left: 10px;
+	margin-right: 10px;
+}
 
 /* Canvas */
 
@@ -2995,13 +3008,13 @@
 /* Footer */
 
 	#footer {
-		padding: 30em 0 6em 0;
+		padding: 8em 0 8em 0;
 		background-color: #4686a0;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed;
-		background-image: url("../../images/underwater.jpg");
-		background-position: center center;
-		background-size: cover;
+		background-image: url("../../images/antelope.jpg");
+	  	background-position: bottom;
+  		background-size: 100% auto;
 		text-align: center;
 	}
 
@@ -3180,6 +3193,8 @@
 			#footer {
 				padding: 4em 0 4em 0 ;
 				background-attachment: scroll;
+				background-position: center;
+				background-size: cover;
 			}
 
 	}
