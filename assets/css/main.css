@@ -2826,7 +2826,7 @@
 /* Header */
 
 	#header {
-		padding: 9em 0 9em 0;
+		padding: 11em 0 11em 0;
 		color: rgba(255, 255, 255, 0.75);
 		overflow: hidden;
 		position: relative;
@@ -2922,7 +2922,7 @@
 		}
 
 		#header .actions {
-			margin: 8em 0 0 0;
+			margin: 4em 0 0 0;
 			position: relative;
 		}
 
@@ -3136,7 +3136,7 @@
 		/* Header */
 
 			#header {
-				padding: 6em 0 6em 0 ;
+				padding: 8em 0 8em 0 ;
 			}
 
 	}
@@ -3180,7 +3180,7 @@
 		/* Header */
 
 			#header {
-				padding: 5em 0 5em 0 ;
+				padding: 7em 0 7em 0 ;
 				background-attachment: scroll;
 			}
 
@@ -3224,7 +3224,7 @@
 		/* Header */
 
 			#header {
-				padding: 8em 3em 8em 3em ;
+				padding: 9em 3em 9em 3em ;
 			}
 
 		/* Footer */
