@@ -10,7 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 	<style>
 		body {
-			background-color: #57A3BD;
+			background-color: white;
 			margin: 0px;
 			overflow: hidden;
 		}
@@ -29,15 +29,15 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 100%;
-			height: 100%;
+			width: 1440px;
+			height: 600px;
 		}
 
 		#nogo {
-			width: 300px;
-  			height: 200px;
-  			top: 100px;
-  			left: 100px;
+			width: 100px;
+  			height: 250px;
+  			left: 670px;
+  			top: 175px;
   			position: absolute;
 		}
 
@@ -55,6 +55,11 @@
 
 
 	<script type="text/javascript">
+
+	  var radiusTable = 70;
+	  var screenWidth = 1440;
+	  var screenHeight = 600;
+
 	  var config = {
 	  		  id: 'paint-canvas',
 	  		  init_scale: 1,
@@ -73,15 +78,44 @@
 			  svg: false,
 			  one_path: false,
 			  shadow_scale: 1,
-			  nogoCircles : [{
-			  	x: 500,
-			  	y: 500,
-			  	radius: 50,
+			  nogoCircles : [
+			  // left
+			  {
+			  	x: screenWidth * 1 / 10,
+			  	y: screenHeight * 1  / 4,
+			  	radius: radiusTable,
+			  },{
+			  	x: screenWidth * 3 / 10,
+			  	y: screenHeight * 3 / 4,
+			  	radius: radiusTable,
 			  }, {
-			  	x: 700,
-			  	y: 200,
-			  	radius: 50,
-			  }],
+			  	x: screenWidth * 1 / 10,
+			  	y: screenHeight * 3 / 4,
+			  	radius: radiusTable,
+			  }, {
+			  	x: screenWidth * 3 / 10,
+			  	y: screenHeight * 1 / 4,
+			  	radius: radiusTable,
+			  }, 
+			  // right
+		  {
+			  	x: screenWidth * 7 / 10,
+			  	y: screenHeight * 1 / 4,
+			  	radius: radiusTable,
+			  },{
+			  	x: screenWidth * 9 / 10,
+			  	y: screenHeight * 3 / 4,
+			  	radius: radiusTable,
+			  }, {
+			  	x: screenWidth * 7 / 10,
+			  	y: screenHeight * 3 / 4,
+			  	radius: radiusTable,
+			  }, {
+			  	x: screenWidth * 9 / 10,
+			  	y: screenHeight * 1 / 4,
+			  	radius: radiusTable,
+			  }, 
+			  ],
 			  root: 'attractors/'
 			}
 	</script>	
