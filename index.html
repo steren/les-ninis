@@ -34,10 +34,10 @@
 		}
 
 		#nogo {
-			width: 100px;
-  			height: 250px;
-  			left: 670px;
-  			top: 175px;
+			width: 140px;
+  			height: 300px;
+  			left: calc(1440px / 2 - 140px / 2);
+  			top: calc(600px / 2 - 300px / 2);
   			position: absolute;
 		}
 
@@ -56,7 +56,7 @@
 
 	<script type="text/javascript">
 
-	  var radiusTable = 70;
+	  var radiusTable = 100;
 	  var screenWidth = 1440;
 	  var screenHeight = 600;
 	  var impactDistance = 80;
@@ -64,14 +64,14 @@
 
 	  var config = {
 	  		  id: 'paint-canvas',
-	  		  init_scale: 1.5,
+	  		  init_scale: 3,
  			  text: '',
 			  text_position_x: 0,
 			  text_position_y: 0,
 			  text_width_ratio: 0,
 			  background_color: '#57A3BD',
 			  nb_attractors: 100,
-			  particule_density: 900,
+			  particule_density: 3000,
 			  line_width: 0.35,
 			  color1: '#DBCEC1',
 			  color2: '#F7F6F5',
