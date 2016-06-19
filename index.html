@@ -1,216 +1,195 @@
-<!DOCTYPE HTML>
-<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Tables</title>
+	<meta charset="utf-8">
 
- ______   __   __   __   __   ______          ______   ______  ______   ______   ______   __   __    
-/\  __ \ /\ "-.\ \ /\ "-.\ \ /\  ___\        /\  ___\ /\__  _\/\  ___\ /\  == \ /\  ___\ /\ "-.\ \   
-\ \  __ \\ \ \-.  \\ \ \-.  \\ \  __\        \ \___  \\/_/\ \/\ \  __\ \ \  __< \ \  __\ \ \ \-.  \  
- \ \_\ \_\\ \_\\"\_\\ \_\\"\_\\ \_____\       \/\_____\  \ \_\ \ \_____\\ \_\ \_\\ \_____\\ \_\\"\_\ 
-  \/_/\/_/ \/_/ \/_/ \/_/ \/_/ \/_____/        \/_____/   \/_/  \/_____/ \/_/ /_/ \/_____/ \/_/ \/_/ 
-                                                                                                     
--->
-<!--
-	Photon by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Anne & Steren</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" sizes="192x192" href="favicon-192.png">
+  	<link rel="icon" sizes="32x32"   href="favicon-32.png" >
 
-		<meta name="robots" content="noindex">
-		<meta name="theme-color" content="#57A3BD">
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+	<style>
+		body {
+			background-color: #57A3BD;
+			margin: 0px;
+			overflow: hidden;
+		}
 
-		<link rel="icon" sizes="192x192" href="favicon-192.png">
-		<link rel="icon" sizes="32x32"   href="favicon-32.png" >
+		#settings {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			opacity: 0.1;
+			font-size: 2em;
+			cursor: pointer;
+			margin-right: 10px;
+		}
 
-		<link rel="stylesheet" href="assets/css/main.css" />
+		#paint-canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 
-	</head>
-	<body>
+		#nogo {
+			width: 300px;
+  			height: 200px;
+  			top: 100px;
+  			left: 100px;
+  			position: absolute;
+		}
 
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-					<h1>Anne <span class="and">&</span> Steren</h1>
-					<h3>13 août 2016</h3>
-					<ul class="actions">
-						<li><a href="#one" class="button scrolly">Dites m'en plus !</a></li>
-					</ul>
+	</style>
+</head>
+<body>
+	<canvas id="paint-canvas"></canvas>
 
-				</div>
-			</section>
+	<div id="nogo"></div>
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<header class="major">
-						<h2>Comment ça se passe ?</h2>
-					</header>
-					<p>Dans les grandes lignes :</p>
-					<div class="row 150%">
-						<div class="4u 6u(medium)">
-							<span class="image fit"><img src="images/mairie.jpg" alt="" /></span>
-							<h3 class="image-key">Mairie - 15h</h3>
-							<p>Officialisons tout cela</p>
-						</div>
-						<div class="4u 6u$(medium)">
-							<span class="image fit"><img src="images/vandeleville.jpg" alt="" /></span>
-							<h3 class="image-key">En route vers Vandeléville</h3>
-							<p>En passant par la Lorraine</p>
-						</div>
-						<div class="4u 6u(medium)">
-							<span class="image fit"><img src="images/ceremonie.jpg" alt="" /></span>
-							<h3 class="image-key">Cérémonini - 18h</h3>
-							<p>Dégainez vos mouchoirs</p>
-						</div>
-						<div class="4u 6u$(medium)">
-							<span class="image fit"><img src="images/cocktail.jpg" alt="" /></span>
-							<h3 class="image-key">Cocktail et Dîner - 19h</h3>
-							<p>Glou glou, miam miam</p>
-						</div>
-						<div class="4u 6u(medium)">
-							<span class="image fit"><img src="images/soiree.jpg" alt="" /></span>
-							<h3 class="image-key">Soirée</h3>
-							<p>Jusqu'au bout de la nuit</p>
-						</div>
-						<div class="4u$ 6u$(medium)">
-							<span class="image fit"><img src="images/brunch.jpg" alt="" /></span>
-							<h3 class="image-key">Brunch - 11h</h3>
-							<p>Paisibles, à la fraîche, décontractés...</p>
-						</div>
-					</div>
-				</div>
-			</section>
+	<div id="settings">&#9881;</div>
 
-		<!-- Two -->
-			<section id="two" class="main style2">
-				<div class="container">
-					<div class="row 150%">
-						<div class="12u">
-							<header class="major">
-								<h2>Des questions ?</h2>
-							</header>
+	<script src="attractors/lib/dat.gui.min.js"></script>	
+	<script src="attractors/lib/opentype.min.js"></script>
 
-							<p>
-								<b>What if I don't speak French?</b>
-								<br/>Don't worry. Most guests are speaking English and a lot of them are living abroad. For this website, <a href="https://translate.google.com/translate?sl=fr&tl=en&u=les-ninis.fr">Google Translate</a> is doing a pretty good job.
-							</p>
 
-							<p>
-								<b>Et pour les végétariens ?</b>
-								<br/>Que vous soyez végétariens ou que vous ayez des restrictions alimentaires, pas de problème. <a href="mailto:anne-et-steren@les-ninis.fr">Faites le nous savoir</a> par avance.
-							</p>
+	<script type="text/javascript">
+	  var config = {
+	  		  id: 'paint-canvas',
+	  		  init_scale: 1,
+ 			  text: '',
+			  text_position_x: 50,
+			  text_position_y: 33,
+			  text_width_ratio: 12,
+			  background_color: '#57A3BD',
+			  nb_attractors: 25,
+			  particule_density: 900,
+			  line_width: 0.35,
+			  nogo_zone: true,
+			  color1: '#DBCEC1',
+			  color2: '#F7F6F5',
+			  pixelratio: window.devicePixelRatio,
+			  svg: false,
+			  one_path: false,
+			  shadow_scale: 1,
+			  nogoCircles : [{
+			  	x: 500,
+			  	y: 500,
+			  	radius: 50,
+			  }, {
+			  	x: 700,
+			  	y: 200,
+			  	radius: 50,
+			  }],
+			  root: 'attractors/'
+			}
+	</script>	
+	<script src="attractors/ninis.js"></script>
 
-							<p>
-								<b>Y'a-t-il une liste de mariage ?</b>
-								<br/>Non, votre présence nous suffira amplement.
-							</p>
-							<p>
-								<b>Y'a-t-il un dress code ?</b>
-								<br/>Il n'y a pas de contraintes. Le plus important, c'est que ça vous plaise.
-							</p>
-							<p>
-								<b>Et les bambins ?</b>
-								<br/>Les enfants sont les bienvenus et on s’occupe des nounous, dites nous juste s'ils vous accompagnent.
-							</p>
-							<p>
-								<b>Y'a des choses à voir en Lorraine, gros ?</b>
-								<br/>La veille ou le lendemain, nous vous recommandons de découvrir Nancy et sa place Stanislas.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
 
-		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
-					<div class="row 150%">
-						<div class="6u 12u$(medium)">
-							<header class="major">
-								<h2>Lieux et logement</h2>
-							</header>
-							<p>Il y a de la place pour loger tout le monde sur place le samedi soir, <a href="mailto:anne-et-steren@les-ninis.fr">faites nous signe</a>.</p>
-							<p>Pour la mairie: il y a deux parkings à coté de la médiathèque<br/>
-							(regardez <a href="https://www.google.fr/maps/place/Mairie/@48.621983,6.1615352,199m/data=!3m1!1e3!4m5!3m4!1s0x0000000000000000:0x8a782ed3a17aa442!8m2!3d48.621813!4d6.1612561">sur Google Maps</a>) </p>
-						</div>
-						<div class="6u$ 12u$(medium) important(medium)">
-							<span class="image fit"><iframe class="" src="https://www.google.com/maps/d/embed?mid=zXeDYtUWrFGc.kWmBgfFJST3w"></iframe></span>
-						</div>
-					</div>
-				</div>
-			</section>
+	<script type="text/javascript">
+	// Refresh on click and fetch keys
 
-		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="mailto:anne-et-steren@les-ninis.fr" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>Les Ninis - 13 août 2016</li>
-				</ul>
-			</section>
+		function refreshGUI() {
+		  console.log(textInput);
+  		  textInput.updateDisplay();
+		}
 
-			<canvas id="paint-canvas"></canvas>
+		function onKeyUp(e) {
+		  if (e.which == 13) { // Enter
+			init();
+		  } else if (e.which == 8) { // Backspace
+			return;
+		  } else if (e.which == 27) { // Escape
+			config.text = '';
+			init();
+		  } else { // any char or space
+			var typedChar = String.fromCharCode(e.which);
+			if(typedChar.match(/[a-zA-Z\s/]/)) {
+			  config.text += typedChar;
+			  init();
+			}
+		  }
+		  refreshGUI();
+		}
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		function onKeyDown(e) {
+		  if(e.which == 8) { // Backspace
+			 config.text = config.text.slice(0, -1);
+			 init();
+			 // if we are in an input, do not preventDefault
+			 if(event.target.tagName.toUpperCase() != 'INPUT') {
+			 	e.preventDefault();
+			 }
+		  }
+		  refreshGUI();
+		}
+		document.body.addEventListener('keyup', onKeyUp);
+		document.body.addEventListener('keydown', onKeyDown);
 
-			<script type="text/javascript">
-			  var config = {
-			  		  id: 'paint-canvas',
-					  text: '',
-					  background_color: '#57A3BD',
-					  nb_attractors: 20,
-					  particule_density: 900,
-					  line_width: 0.35,
-					  color1: '#DBCEC1',
-					  color2: '#F7F6F5',
-					  root: 'attractors/'
-					  //width: $('#paint-canvas').width(),
-					  //height: $('#paint-canvas').height(),
-					}
-			</script>
-			<script src="attractors/ninis.js"></script>
+		document.getElementById("paint-canvas").addEventListener('click', init, true);
+	</script>
 
-			<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			  ga('create', 'UA-65778211-1', 'auto');
-			  ga('send', 'pageview');
-			</script>
+	<script type="text/javascript">
+	// get the position and size of the "nogo" element.
+		function getNoGoElParam() {
+			var nogoEl = document.getElementById('nogo');
+			return {
+				x: nogoEl.offsetLeft,
+				y: nogoEl.offsetTop,
+				width: nogoEl.offsetWidth,
+				height: nogoEl.offsetHeight
+			}
+		}
 
-	</body>
+		function initWithNoGo() {
+			config.nogoParam = getNoGoElParam();
+			init();
+		}
+
+		initWithNoGo();
+		
+	</script>
+
+	<script type="text/javascript">
+	// dat.GUI controls
+	  var gui = new dat.GUI();
+	  gui.domElement.style.visibility = 'hidden';
+	  dat.GUI.toggleHide();
+	  gui.remember(config);
+
+	  gui.addColor(config, 'background_color').onChange(init);
+	  gui.add(config, 'nb_attractors', 0, 500).onChange(init);
+	  gui.add(config, 'particule_density', 0, 3000).onChange(init);
+	  gui.add(config, 'init_scale', 0.01, 1.5).onChange(init);
+	  gui.add(config, 'nogo_zone').onChange(initWithNoGo);
+
+	  var textFolder = gui.addFolder('Text');
+	  var textInput = textFolder.add(config, 'text').onChange(init);
+	  textFolder.add(config, 'text_width_ratio', 0, 50).onChange(init);
+	  textFolder.add(config, 'text_position_x', 0, 100).onChange(init);
+	  textFolder.add(config, 'text_position_y', 0, 100).onChange(init);
+
+	  var lineFolder = gui.addFolder('Lines');
+	  lineFolder.add(config, 'line_width', 0, 5).onChange(init);
+	  lineFolder.addColor(config, 'color1').onChange(init);
+	  lineFolder.addColor(config, 'color2').onChange(init);
+
+	  var lineFolder = gui.addFolder('Shadows');
+	  lineFolder.add(config, 'shadow_scale', 0, 5).onChange(init);
+
+	  var advancedFolder = gui.addFolder('Advanced');
+	  advancedFolder.add(config, 'pixelratio', 1, 10).onChange(init);
+	  advancedFolder.add(config, 'svg').onChange(init);
+	  advancedFolder.add(config, 'one_path').onChange(init);
+	  advancedFolder.add({save_svg:false}, 'save_svg').onChange(generateSVG);
+
+	  document.getElementById("settings").addEventListener('click', function() {
+	  	gui.domElement.style.visibility = 'visible';
+	    dat.GUI.toggleHide();
+	  });
+	</script>
+</body>
 </html>
-<!--
-
-oo                                        
-   oo     OOOOOOOO:       OOOOOOOO!       
-      oOOOO!!!!;;;;O    OO.......:;!O     
-     'OOO!!!;;;;;;;;O  O.......:   ;!O    
-     OOO!!!!;;::::::.OO........:    ;!O   
-     OO!!!!;;:::::..............:   ;!O   
-     OOO!!!;::::::..............:   ;!O   
-      OO!!;;::::::.............:   ;!O    
-       OO!;;::::::......oo.....::::!O     
-         O!!;::::::........oo..:::O       
-           !!!;:::::..........ooO         
-              !!;:::::.......O   oo       
-                ;;::::.....O        oo  ,o
-                   :::..O              ooo
-                     ::.              oooo
-                      :                   
-
-
-       Nous aussi on t'aime, gros geek.
-
--->
