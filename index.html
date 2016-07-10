@@ -9,10 +9,14 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 	<style>
+
 		body {
 			background-color: white;
 			margin: 0px;
 			overflow: hidden;
+
+			--canvasWidth: 1440px;
+			--canvasHeight: 800px;
 		}
 
 		#settings {
@@ -29,15 +33,17 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 1440px;
-			height: 600px;
+			width: var(--canvasWidth);
+			height: var(--canvasHeight);
 		}
 
 		#nogo {
-			width: 140px;
-  			height: 300px;
-  			left: calc(1440px / 2 - 140px / 2);
-  			top: calc(600px / 2 - 300px / 2);
+			--tableWidth: 140px;
+			--tableHeight: 300px;
+			width: var(--tableWidth);
+  			height: var(--tableHeight);
+  			left: calc(var(--canvasWidth) / 2 - var(--tableWidth) / 2);
+  			top: calc(var(--canvasHeight) / 2 - var(--tableHeight) / 2);
   			position: absolute;
 		}
 
@@ -57,8 +63,15 @@
 	<script type="text/javascript">
 
 	  var radiusTable = 100;
-	  var screenWidth = 1440;
-	  var screenHeight = 600;
+		
+	  // A1 is 841 cm x 594 cm
+
+	  var screenWidth = 1440; // 841 cm  
+	  var screenHeight = 800; // 594 cm
+
+	  var tableWidth = 140;
+	  var tableHeight = 300;
+
 	  var impactDistance = 80;
 	  var type = 'cos';
 
@@ -69,75 +82,84 @@
 			  text_position_x: 0,
 			  text_position_y: 0,
 			  text_width_ratio: 0,
-			  background_color: '#57A3BD',
-			  nb_attractors: 100,
-			  particule_density: 3000,
-			  line_width: 0.35,
+			  background_color: '#a8c5cf',
+			  nb_attractors: 140,
+			  particule_density: 2000,
+			  line_width: 0.5,
 			  color1: '#DBCEC1',
 			  color2: '#F7F6F5',
 			  pixelratio: window.devicePixelRatio,
 			  svg: false,
 			  one_path: false,
-			  shadow_scale: 1,
+			  shadow_scale: 0.7,
 			  nogo_zone: true,
 			  nogoZoneType : 'cos',
 			  noGoImpactDistance : impactDistance,
 			  nogoCircles : [
 			  // left
+			  	// 0, 0
 			  {
 			  	x: screenWidth * 1 / 10,
-			  	y: screenHeight * 1  / 4,
+			  	y: screenHeight / 2 - tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  },{
+			  	// 1, 1
 			  	x: screenWidth * 3 / 10,
-			  	y: screenHeight * 3 / 4,
+			  	y: screenHeight / 2 + tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  }, {
+			  	// 0, 1
 			  	x: screenWidth * 1 / 10,
-			  	y: screenHeight * 3 / 4,
+			  	y: screenHeight / 2 + tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: -1,
 			  }, {
+			  	// 1, 0
 			  	x: screenWidth * 3 / 10,
-			  	y: screenHeight * 1 / 4,
+			  	y: screenHeight / 2 - tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: -1,
 			  }, 
+
 			  // right
 		  	  {
+		  	  	// 0,0
 			  	x: screenWidth * 7 / 10,
-			  	y: screenHeight * 1 / 4,
+			  	y: screenHeight / 2 - tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  },{
+			  	// 1, 1
 			  	x: screenWidth * 9 / 10,
-			  	y: screenHeight * 3 / 4,
+			  	y: screenHeight / 2 + tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  }, {
+			  	// 0, 1
 			  	x: screenWidth * 7 / 10,
-			  	y: screenHeight * 3 / 4,
+			  	y: screenHeight / 2 + tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: -1,
 			  }, {
+			  	// 1, 0
 			  	x: screenWidth * 9 / 10,
-			  	y: screenHeight * 1 / 4,
+			  	y: screenHeight / 2 - tableHeight / 2,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
