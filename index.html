@@ -171,51 +171,6 @@
 	</script>	
 	<script src="attractors/ninis.js"></script>
 
-
-	<script type="text/javascript">
-	// Refresh on click and fetch keys
-
-		function refreshGUI() {
-		  console.log(textInput);
-  		  textInput.updateDisplay();
-		}
-
-		function onKeyUp(e) {
-		  if (e.which == 13) { // Enter
-			init();
-		  } else if (e.which == 8) { // Backspace
-			return;
-		  } else if (e.which == 27) { // Escape
-			config.text = '';
-			init();
-		  } else { // any char or space
-			var typedChar = String.fromCharCode(e.which);
-			if(typedChar.match(/[a-zA-Z\s/]/)) {
-			  config.text += typedChar;
-			  init();
-			}
-		  }
-		  refreshGUI();
-		}
-
-		function onKeyDown(e) {
-		  if(e.which == 8) { // Backspace
-			 config.text = config.text.slice(0, -1);
-			 init();
-			 // if we are in an input, do not preventDefault
-			 if(event.target.tagName.toUpperCase() != 'INPUT') {
-			 	e.preventDefault();
-			 }
-		  }
-		  refreshGUI();
-		}
-		document.body.addEventListener('keyup', onKeyUp);
-		document.body.addEventListener('keydown', onKeyDown);
-
-		document.getElementById("paint-canvas").addEventListener('click', init, true);
-	</script>
-
-
 	<script type="text/javascript">
 	// get the position and size of the "nogo" element.
 		function getNoGoElParam() {
