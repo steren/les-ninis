@@ -16,7 +16,7 @@
 			overflow: hidden;
 
 			--canvasWidth: 1440px;
-			--canvasHeight: 800px;
+			--canvasHeight: 1000px;
 		}
 
 		#settings {
@@ -38,7 +38,7 @@
 		}
 
 		#nogo {
-			--tableWidth: 140px;
+			--tableWidth: 120px;
 			--tableHeight: 300px;
 			width: var(--tableWidth);
   			height: var(--tableHeight);
@@ -62,12 +62,16 @@
 
 	<script type="text/javascript">
 
-	  var radiusTable = 100;
+	  var radiusTable = 90;
 		
 	  // A1 is 841 cm x 594 cm
 
 	  var screenWidth = 1440; // 841 cm = 33 inches
-	  var screenHeight = 800; // 594 cm
+	  var screenHeight = 1000; // 1017px = 594 cm
+
+	  var marginLeftRight = 100;
+	  var contentWidth = screenWidth - 2 * marginLeftRight;
+	  var tableDistanceToCenter = (contentWidth * 2 / 10 ) / 2;
 
 	  var tableWidth = 140;
 	  var tableHeight = 300;
@@ -99,32 +103,32 @@
 			  // left
 			  	// 0, 0
 			  {
-			  	x: screenWidth * 1 / 10,
-			  	y: screenHeight / 2 - tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 1 / 10,
+			  	y: screenHeight / 2 - tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  },{
 			  	// 1, 1
-			  	x: screenWidth * 3 / 10,
-			  	y: screenHeight / 2 + tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 3 / 10,
+			  	y: screenHeight / 2 + tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  }, {
 			  	// 0, 1
-			  	x: screenWidth * 1 / 10,
-			  	y: screenHeight / 2 + tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 1 / 10,
+			  	y: screenHeight / 2 + tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: -1,
 			  }, {
 			  	// 1, 0
-			  	x: screenWidth * 3 / 10,
-			  	y: screenHeight / 2 - tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 3 / 10,
+			  	y: screenHeight / 2 - tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
@@ -134,32 +138,32 @@
 			  // right
 		  	  {
 		  	  	// 0,0
-			  	x: screenWidth * 7 / 10,
-			  	y: screenHeight / 2 - tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 7 / 10,
+			  	y: screenHeight / 2 - tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  },{
 			  	// 1, 1
-			  	x: screenWidth * 9 / 10,
-			  	y: screenHeight / 2 + tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 9 / 10,
+			  	y: screenHeight / 2 + tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: 1,
 			  }, {
 			  	// 0, 1
-			  	x: screenWidth * 7 / 10,
-			  	y: screenHeight / 2 + tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 7 / 10,
+			  	y: screenHeight / 2 + tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
 			  	direction: -1,
 			  }, {
 			  	// 1, 0
-			  	x: screenWidth * 9 / 10,
-			  	y: screenHeight / 2 - tableHeight / 2,
+			  	x: marginLeftRight + contentWidth * 9 / 10,
+			  	y: screenHeight / 2 - tableDistanceToCenter,
 			  	radius: radiusTable,
 			  	impactDistance: impactDistance,
 			  	type: type,
