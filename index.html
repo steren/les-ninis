@@ -62,7 +62,7 @@
 
 	<script type="text/javascript">
 
-	  var radiusTable = 90;
+	  var radiusTable = 82;
 		
 	  // A1 is 841 cm x 594 cm
 
@@ -71,12 +71,16 @@
 
 	  var marginLeftRight = 100;
 	  var contentWidth = screenWidth - 2 * marginLeftRight;
-	  var tableDistanceToCenter = (contentWidth * 2 / 10 ) / 2;
+	  var tableDistanceToCenter = (contentWidth * 2 / 10 ) / 2; // in order to have the same distance in X and Y between tables
+	  var leftAdditionalDistanceY = tableDistanceToCenter * 0.3;
+	  var leftAdditionalDistanceX = tableDistanceToCenter * 0.1;
 
 	  var tableWidth = 140;
 	  var tableHeight = 300;
 
-	  var impactDistance = 80;
+	  var impactDistance = 70;
+	  var impactDistanceLeft = impactDistance * 3 / 4;
+	  var impactDistanceCenterLeft = impactDistance / 2;
 	  var type = 'cos';
 
 	  var config = {
@@ -103,37 +107,45 @@
 			  // left
 			  	// 0, 0
 			  {
-			  	x: marginLeftRight + contentWidth * 1 / 10,
-			  	y: screenHeight / 2 - tableDistanceToCenter,
+			  	x: marginLeftRight + contentWidth * 1 / 10 - leftAdditionalDistanceX,
+			  	y: screenHeight / 2 - tableDistanceToCenter - leftAdditionalDistanceY,
 			  	radius: radiusTable,
-			  	impactDistance: impactDistance,
+			  	impactDistance: impactDistanceLeft,
 			  	type: type,
 			  	direction: 1,
 			  },{
 			  	// 1, 1
-			  	x: marginLeftRight + contentWidth * 3 / 10,
-			  	y: screenHeight / 2 + tableDistanceToCenter,
+			  	x: marginLeftRight + contentWidth * 3 / 10 + leftAdditionalDistanceX,
+			  	y: screenHeight / 2 + tableDistanceToCenter + leftAdditionalDistanceY,
 			  	radius: radiusTable,
-			  	impactDistance: impactDistance,
+			  	impactDistance: impactDistanceLeft,
 			  	type: type,
 			  	direction: 1,
 			  }, {
 			  	// 0, 1
-			  	x: marginLeftRight + contentWidth * 1 / 10,
-			  	y: screenHeight / 2 + tableDistanceToCenter,
+			  	x: marginLeftRight + contentWidth * 1 / 10 - leftAdditionalDistanceX,
+			  	y: screenHeight / 2 + tableDistanceToCenter + leftAdditionalDistanceY,
 			  	radius: radiusTable,
-			  	impactDistance: impactDistance,
+			  	impactDistance: impactDistanceLeft,
 			  	type: type,
 			  	direction: -1,
 			  }, {
 			  	// 1, 0
-			  	x: marginLeftRight + contentWidth * 3 / 10,
-			  	y: screenHeight / 2 - tableDistanceToCenter,
+			  	x: marginLeftRight + contentWidth * 3 / 10 + leftAdditionalDistanceX,
+			  	y: screenHeight / 2 - tableDistanceToCenter - leftAdditionalDistanceY,
 			  	radius: radiusTable,
-			  	impactDistance: impactDistance,
+			  	impactDistance: impactDistanceLeft,
 			  	type: type,
 			  	direction: -1,
-			  }, 
+			  }, {
+			  	// center
+			  	x: marginLeftRight + contentWidth * 2 / 10,
+			  	y: screenHeight / 2,
+			  	radius: radiusTable,
+			  	impactDistance: impactDistanceCenterLeft,
+			  	type: type,
+			  	direction: -1,
+			  },
 
 			  // right
 		  	  {
